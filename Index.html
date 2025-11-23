@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anúbis Motor</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+  // Tempo total das frases (número de frases x duração da animação)
+  const totalFrases = 4;
+  const tempoAnimacao = 3; // segundos por frase
+  const tempoTotal = totalFrases * tempoAnimacao * 1000; // em ms
+
+  setTimeout(() => {
+    const hero = document.querySelector('.hero');
+    // Se quiser clarear, pode diminuir o overlay
+    document.querySelector('.overlay').style.background = "rgba(0,0,0,0.9)";
+    // Opcional: esconder as frases do trailer
+    // Animar as linhas do rodapé
+    document.querySelector('.br-line-badge').classList.add('show');
+    document.querySelector('.site-footer').classList.add('show');
+    document.querySelector('.main-center').classList.add('show');
+  }, tempoTotal);
+</script>
+</head>
+
+<body>
+  <!-- HERO COM TRAILER -->
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <!-- LOGO -->
+    <div class="logo-container">
+      <img src="Logo.png" class="logo-icon" alt="Logo Anúbis" />
+      <span class="logo-text">ANÚBIS</span>
+    </div>
+
+    <div class="main-center">
+      <div class="modelo">ANÚBIS <span class="rs-highlight">RS</span></div>
+      <h1 class="titulo">
+        <span>R</span>acing <br><span>S</span>portividade.
+      </h1>
+      <div class="actions">
+        <a href="#" class="cta-btn">CONHEÇA MAIS</a>
+      </div>
+    </div>
+
+    <!-- FRASES DO TRAILER -->
+    <div class="hero-text-block">
+      <div class="line">ANTES DA LUZ, HÁ O SILÊNCIO.</div>
+      <div class="line">DO SILÊNCIO, NASCE A FORÇA.</div>
+      <div class="line">UM INSTINTO PRIMORDIAL DESPERTA.</div>
+      <div class="line">RENASCIDO ONDE POUCOS OUSAM TENTAR.</div>
+    </div>
+  </section>
+  <div class="br-line-badge">Projetado e fabricado no Brasil</div>
+<footer class="site-footer">© 2025 Anúbis Motor – Todos os direitos reservados</footer>
+</body>
+</html>

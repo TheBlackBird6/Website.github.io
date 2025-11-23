@@ -1,0 +1,253 @@
+/* -------- RESET -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------- HERO -------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("Background.png") center/cover;
+  overflow: hidden;
+  transition: background-image 0.8s ease-in, background 0.8s ease-in; /* animação */
+}
+
+/* Escurecimento fino */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 1);
+  transition: background 1s cubic-bezier(.77,0,.18,1); /* para fade */
+  z-index: 4;
+}
+
+/* -------- LOGO -------- */
+.logo-container {
+  position: absolute;
+  top: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.logo-icon {
+  height: 6vw;
+  min-height: 38px;
+  max-height: 58px;
+}
+
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  letter-spacing: 4px;
+  color: #fff;
+}
+
+/* -------- FRASES DO TRAILER -------- */
+.hero-text-block {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 6;
+  flex-wrap: wrap;
+}
+
+.hero-text-block .line {
+  position: absolute;
+  white-space: normal;
+  word-break: keep-all;
+  text-align: center;
+  font-size: clamp(1rem, 4vw, 2.1rem);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: #e0c68d;
+  opacity: 0;
+  animation: trailerLine 4s ease forwards;
+}
+
+.hero-text-block .line:nth-child(1) { animation-delay: 0s; }
+.hero-text-block .line:nth-child(2) { animation-delay: 3s; }
+.hero-text-block .line:nth-child(3) { animation-delay: 6s; }
+.hero-text-block .line:nth-child(4) { animation-delay: 9s; }
+
+@keyframes trailerLine {
+  0%   { opacity: 0; transform: translateY(10px); }
+  20%  { opacity: 1; transform: translateY(0); }
+  80%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* -------- MAIN CENTER -------- */
+.main-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  padding: 0 2vw;
+  text-align: center;
+  color: white;
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(.77,0,.18,1);
+}
+
+.main-center.show {
+  opacity: 1;
+}
+
+.modelo {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+}
+
+.rs-highlight {
+  font-weight: bold;
+  color: #e0c68d;
+  font-family: "Montserrat", sans-serif;
+}
+
+.titulo {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.2rem, 5vw, 2.2rem);
+  line-height: 1.2;
+  font-weight: 300;
+  padding-bottom: 10px;
+}
+
+.titulo span {
+  font-weight: 700;
+  color: #e0c68d;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.cta-btn {
+  padding: 0.75em 2em;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 0.6em;
+  color: white;
+  font-family: "Montserrat";
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  transition: all .3s;
+}
+
+.cta-btn:hover {
+  background:#e0c68d;
+  color: black;
+}
+
+/* -------- RESPONSIVO FOOTER E BADGE -------- */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  color: #c5c5c572;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem 0;
+  letter-spacing: 2px;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(.77,0,.18,1), transform 1s cubic-bezier(.77,0,.18,1);
+}
+.site-footer.show {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.br-line-badge {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  color: #e0c68d;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.7rem 0 0.4rem 0;
+  letter-spacing: 2px;
+  z-index: 21;
+  bottom: 56px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(.77,0,.18,1), transform 1s cubic-bezier(.77,0,.18,1);
+}
+.br-line-badge.show {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+
+/* -------- MEDIA QUERIES RESPONSIVIDADE -------- */
+@media (max-width: 600px) {
+  .logo-icon {
+    height: 40px;
+    min-height: 28px;
+    max-height: 48px;
+  }
+  .logo-container {
+    top: 2vw;
+    gap: 0.4rem;
+  }
+  .main-center {
+    position: absolute; /* mantenha absolute no mobile */
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 98vw;
+    padding: 0;
+    z-index: 6;
+  }
+  .modelo {
+    font-size: 2rem;
+    display: inline-flex;
+  }
+  .titulo {
+    font-size: 1.1rem;
+  }
+  .cta-btn {
+    padding: 0.5;
+    font-size: 0.9rem;
+    border-radius: 0.45em;
+  }
+  .br-line-badge,
+  .site-footer {
+    font-size: 0.95rem;
+    padding: 0.5em 0.3em;
+  }
+  .hero-text-block {
+    max-width: 98vw;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+  }
+  .hero-text-block .line {
+    font-size: clamp(1rem, 6vw, 1.4rem);
+    padding: 2px 4vw;
+  }
+  .hero {
+    background: url("BackgroundMobile.png") center/cover;
+  }
+}
+
+/* --------- End CSS --------- */
